@@ -30,7 +30,7 @@ function QuoteBox() {
     return (
         <div className="container-fluid" id="quote-box">
             <div className="row">
-                <div className="col col-xs-4"><h1 className="text-center"><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h1></div>
+                <div className="col col-xs-4"><h3 className="text-center"><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
             </div>
             <div className="row" id="author">
                 <div className="col">
