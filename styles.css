@@ -1,0 +1,32 @@
+html, body {
+    max-height: 600px;
+    background-color: #1e81b0;
+    color: #fff;
+}
+
+div#root {
+    margin: 0 auto;
+    max-width: 40%;
+    max-height: 40%;
+    background: #fff;
+    color: #1e81b0;
+}
+
+div#quote-box {
+    padding: 2em;
+}
+
+#buttons {
+    margin-top: 4em;
+}
+
+.footer {
+    margin-top: 2em;
+    position: fixed;
+}
+
+@media (max-width: 600px) {
+    div#root {
+        margin: auto;
+    }
+}
