@@ -14,14 +14,16 @@ fetch('https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f
     console.log(err)
 })
 
+function getRandomQuote() {
+    return quotesData ? quotesData[Math.floor(Math.random() * quotesData.length)] : {quote: "The quick brown fox jumps over the lazy dog", author: "Keyboard Warrior"}
+}
 
 function QuoteBox() {
-    const [qt, setQuote] = useState(getRandomQuote())
-    
-
-    function getRandomQuote() {
-        return quotesData ? quotesData[Math.floor(Math.random() * quotesData.length)] : {quote: "The quick brown fox jumps over the lazy dog", author: "Keyboard Warrior"}
-    }
+    /*  For some reason, useState( () => getRandomQuote() ) does not work
+        Also, getRandomQuote() does not get a random quote on first load.
+        Though, it works when I press the 'New quote' button that sets the state.
+    */
+    const [qt, setQuote] = useState(getRandomQuote())   
     
     function newQuote() {
         setQuote(() => getRandomQuote())
@@ -29,19 +31,17 @@ function QuoteBox() {
 
     return (
         <div className="container-fluid" id="quote-box">
-            <div className="row">
-                <div className="col col-xs-4"><h3 className="text-center"><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
+            <div className="d-flex justify-content-start">
+                <div className="col col-xs-4"><h3><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
             </div>
-            <div className="row" id="author">
-                <div className="col">
-                    <p className="text-right">- {qt.author}</p>
-                </div>
+            <div className="d-flex justify-content-end" id="author">
+                <p>- {qt.author}</p>
             </div>
-            <div className="row" id="buttons">
-                <div className="col col-md-8">
+            <div className="d-flex justify-content-between" id="buttons">
+                <div>
                     <strong>Share on:</strong> <a className='btn btn-primary' id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='.concat(qt.quote).concat(' ').concat(qt.author)} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
                 </div>
-                <div className="col col-sm-4">
+                <div>
                     <button className='btn btn-primary' id="new-quote" onClick={newQuote}>New quote</button>
                 </div>
             </div>
