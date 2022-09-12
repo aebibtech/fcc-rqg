@@ -7,7 +7,7 @@ html, body {
 div#root {
     border-radius: 10px;
     margin: 0 auto;
-    max-width: 40%;
+    max-width: 768px;
     max-height: 40%;
     background: #fff;
     color: #1e81b0;
@@ -26,7 +26,7 @@ div#quote-box {
     position: fixed;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     div#root {
         max-width: fit-content;
     }
