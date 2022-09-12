@@ -26,8 +26,8 @@ div#quote-box {
     position: fixed;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     div#root {
-        margin: auto;
+        max-width: fit-content;
     }
 }
