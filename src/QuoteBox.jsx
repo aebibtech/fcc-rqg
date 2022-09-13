@@ -35,7 +35,7 @@ function QuoteBox() {
                 <div className="col col-xs-4"><h3><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
             </div>
             <div className="d-flex justify-content-end" id="author">
-                <p>- {qt.author}</p>
+                <p className="lead">- {qt.author}</p>
             </div>
             <div className="d-flex justify-content-between" id="buttons">
                 <div>
