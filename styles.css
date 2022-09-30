@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    max-height: fit-content;
+    height: 100vh;
 }
 
 div#main {
@@ -11,7 +11,7 @@ div#main {
 }
 
 div#quote-box {
-    padding: 2.5em;
+    padding: 1.5rem;
 }
 
 #buttons {
@@ -20,7 +20,7 @@ div#quote-box {
 
 .footer {
     margin-top: 3.12rem;
-    padding: 5rem;
+    height: 70vh;
     position: relative;
     text-align: center;
 }
