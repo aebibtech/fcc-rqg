@@ -6,7 +6,7 @@ function QuoteBox({ quote, handler, styleObj }) {
         <div style={styleObj} id="main">
         <div className="container-fluid" id="quote-box">
             <div className="d-flex justify-content-start">
-                <div className="col col-xs-4"><h3><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
+                <div className="col col-xs-4"><h3 className="text-center"><i className='fa fa-quote-left'></i> <span id="text">{qt.quote}</span></h3></div>
             </div>
             <div className="d-flex justify-content-end" id="author">
                 <p className="lead">- {qt.author}</p>

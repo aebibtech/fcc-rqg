@@ -6,7 +6,7 @@ body {
 div#main {
     border-radius: 10px;
     margin: 0 auto;
-    max-width: 768px;
+    max-width: 50rem;
     background: #fff;
 }
 
@@ -21,7 +21,7 @@ div#quote-box {
 .footer {
     margin-top: 3.12rem;
     height: 70vh;
-    position: relative;
+    position: inherit;
     text-align: center;
 }
 
@@ -30,8 +30,8 @@ a, a:hover {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 50rem) {
     div#root {
-        max-width: fit-content;
+        max-width: 50rem;
     }
 }
