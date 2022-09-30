@@ -1,24 +1,17 @@
-html, body {
-    max-height: 600px;
-    background-color: #111;
+body {
     color: #fff;
+    max-height: fit-content;
 }
 
-div#root {
+div#main {
     border-radius: 10px;
     margin: 0 auto;
     max-width: 768px;
-    max-height: 40%;
     background: #fff;
-    color: #111;
 }
 
 div#quote-box {
     padding: 2.5em;
-}
-
-#text {
-    font-size: fit-height;
 }
 
 #buttons {
@@ -26,8 +19,10 @@ div#quote-box {
 }
 
 .footer {
-    margin-top: 2em;
-    position: fixed;
+    margin-top: 3.12rem;
+    padding: 5rem;
+    position: relative;
+    text-align: center;
 }
 
 a, a:hover {
