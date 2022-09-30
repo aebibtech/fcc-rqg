@@ -15,7 +15,7 @@ function QuoteBox({ quote, handler }) {
                     <strong>Share on:</strong> <a className='btn btn-dark' id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='.concat(qt.quote).concat(' ').concat(qt.author)} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
                 </div>
                 <div>
-                    <button className='btn btn-dark' id="new-quote" onClick={handler}>New quote</button>
+                    <button className='btn btn-dark' id="new-quote" onClick={handler} disabled={qt.author === ""}>New quote</button>
                 </div>
             </div>
         </div>
