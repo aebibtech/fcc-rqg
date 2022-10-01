@@ -2,4 +2,4 @@
 This is a random quote generator built with Vite + React. This is my attempt to do freeCodeCamp's random quote generator project.
 
 ## Screenshot
-![Screenshot of the Random Quote Generator](https://github.com/aebibtech/fcc-rqg/blob/main/screenshot-rqg.png?raw=true)
+![Screenshot of the Random Quote Generator](./rqg-gif.gif)
