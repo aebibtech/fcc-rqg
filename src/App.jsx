@@ -6,7 +6,7 @@ function App() {
   const [quotesData, setQuotesData] = useState({})
   const [currQuote, setCurrQuote] = useState({})
   const [color, setColor] = useState({})
-  const commonStyle = { transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }
+  const animation = { transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }
 
   let colors = [
     '#16a085', '#27ae60', '#2c3e50',
@@ -20,7 +20,7 @@ function App() {
           .then(res => {
             setQuotesData(res.data.quotes)
             setCurrQuote(res.data.quotes[Math.floor(Math.random() * res.data.quotes.length)])
-            setColor({ color: colors[Math.floor(Math.random() * colors.length)], ...commonStyle })
+            setColor({ color: colors[Math.floor(Math.random() * colors.length)], ...animation })
           }).catch(e => {
             setCurrQuote({ quote: "Failed to get data from server.", author: ""})
           })
@@ -38,10 +38,10 @@ function App() {
   function getRandomColor() {
     setColor(() => {
       let randomColor = colors[Math.floor(Math.random() * colors.length)]
-      return { color: randomColor, ...commonStyle }})
+      return { color: randomColor, ...animation }})
   }
   return (
-    <div style={ { backgroundColor: color.color, ...commonStyle } }>
+    <div style={ { backgroundColor: color.color, ...animation } }>
     <div className="jumbotron-fluid container-fluid text-center">
       <h1 className="display-4">Random Quote Generator</h1>
       <p className="lead">Share some quotes to your friends!</p>
