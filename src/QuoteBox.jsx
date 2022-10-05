@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 
 function QuoteBox({ quote, handler, styleObj }) {
-    let qt = quote
+    const qt = quote
+    const twitterSharer = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' 
+    const btnStyle = { backgroundColor: styleObj.color, transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }
     return (
         <div style={styleObj} id="main">
         <div className="container-fluid" id="quote-box">
@@ -13,10 +15,10 @@ function QuoteBox({ quote, handler, styleObj }) {
             </div>
             <div className="d-flex justify-content-between" id="buttons">
                 <div>
-                    <strong>Share on:</strong> <a style={{ backgroundColor: styleObj.color, transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }} className='btn btn-dark' id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='.concat(qt.quote).concat(' ').concat(qt.author)} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
+                    <strong>Share on:</strong> <a style={btnStyle} className='btn btn-dark' id="tweet-quote" href={twitterSharer.concat(`${qt.quote} ${qt.author}`)} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
                 </div>
                 <div>
-                    <button style={{ backgroundColor: styleObj.color, transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }} className='btn btn-dark' id="new-quote" onClick={handler} disabled={qt.author === ""}>New quote</button>
+                    <button style={btnStyle} className='btn btn-dark' id="new-quote" onClick={handler} disabled={qt.author === ""}>New quote</button>
                 </div>
             </div>
         </div>
