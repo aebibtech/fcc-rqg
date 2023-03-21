@@ -15,7 +15,7 @@ function QuoteBox({ quote, handler, styleObj }) {
                 </div>
                 <div className="d-flex justify-content-between" id="buttons">
                     <div>
-                        <strong>Share on:</strong> <a style={btnStyle} className='btn btn-dark' id="tweet-quote" href={twitterSharer.concat(`${qt.quote} ${qt.author}`)} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
+                        <strong>Share on:</strong> <a style={btnStyle} className='btn btn-dark' id="tweet-quote" href={`${twitterSharer}${qt.quote} ${qt.author}`} target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter'></i></a>
                     </div>
                     <div>
                         <button style={btnStyle} className='btn btn-dark' id="new-quote" onClick={handler} disabled={qt.author === ""}>New quote</button>

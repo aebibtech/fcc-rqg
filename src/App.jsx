@@ -15,22 +15,21 @@ function App() {
 		'#BDBB99', '#77B1A9', '#73A857'
 	];
 
-	useEffect(() => {
-		async function getData(){
-		try{
-			const res = await axios.get("https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json")
-			setQuotesData(res.data.quotes)
-			setCurrQuote(res.data.quotes[Math.floor(Math.random() * res.data.quotes.length)])
-			setColor({
-			color: colors[Math.floor(Math.random() * colors.length)],
-			...animation
-			})
-		}
-		catch(err){
-			setCurrQuote({ quote: "Failed to get data from server.", author: ""})
-		}
-		}
-		getData()
+	useEffect(function(){
+		(async function(){
+			try{
+				const res = await axios.get("https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json")
+				setQuotesData(res.data.quotes)
+				setCurrQuote(res.data.quotes[Math.floor(Math.random() * res.data.quotes.length)])
+				setColor({
+					color: colors[Math.floor(Math.random() * colors.length)],
+					...animation
+				})
+			}
+			catch(err){
+				setCurrQuote({ quote: "Failed to get data from server.", author: ""})
+			}
+		})()
 	}, [])
 
 	function getRandomQuote() {
@@ -44,8 +43,9 @@ function App() {
 
 	function getRandomColor() {
 		setColor(() => {
-		let randomColor = colors[Math.floor(Math.random() * colors.length)]
-		return { color: randomColor, ...animation }})
+			let randomColor = colors[Math.floor(Math.random() * colors.length)]
+			return { color: randomColor, ...animation }
+		})
 	}
 	return (
 		<div style={ { backgroundColor: color.color, ...animation } }>
