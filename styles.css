@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    height: 100vh;
+    overflow-y: hidden;
 }
 
 h1 {
@@ -12,6 +12,7 @@ div#main {
     margin: 4rem auto;
     max-width: 50rem;
     background: #fff;
+    box-shadow: 0 0 12px #000;
 }
 
 div#quote-box {
