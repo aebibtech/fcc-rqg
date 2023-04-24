@@ -1,6 +1,12 @@
+:root{
+    --bgc: #000;
+}
+
 body {
     color: #fff;
-    overflow-y: hidden;
+    overflow-y: auto;
+    background-color: var(--bgc);
+    transition: background-color 2s ease;
 }
 
 h1 {
@@ -25,8 +31,9 @@ div#quote-box {
 
 .footer {
     margin-top: 3.12rem;
-    height: 70vh;
-    position: inherit;
+    /* height: 70vh;
+    padding-bottom: 9.7vh;
+    position: inherit; */
     text-align: center;
 }
 
