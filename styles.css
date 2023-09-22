@@ -9,6 +9,10 @@ body {
     transition: background-color 2s ease;
 }
 
+#root{
+    height: 100vh;
+}
+
 h1 {
     padding: 1.2rem;
 }
