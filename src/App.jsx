@@ -6,18 +6,13 @@ import Styles from '../styles.css'
 function App() {
 	const [quotesData, setQuotesData] = useState({})
 	const [currQuote, setCurrQuote] = useState({})
-	const [color, setColor] = useState({})
+	const [style, setStyle] = useState({})
 	const animation = { transition: "all 2s ease", WebkitTransition: "all 2s ease", MozTransition: "all 2s ease" }
 
-	function getNumber(){
-		const DARK_VALUES = "01234567"
-		return DARK_VALUES[Math.floor(Math.random() * DARK_VALUES.length)]
-	}
-
-	function getRandomColor() {
+	function getNewStyle() {
 		let randomColor = "#"
 		for(let i = 0; i < 3; i++){
-			randomColor += getNumber()
+			randomColor += new String(Math.floor(Math.random() * 7))
 		}
 		return { color: randomColor, ...animation }
 	}
@@ -32,7 +27,7 @@ function App() {
 
 	function newQuote() {
 		setCurrQuote(() => getRandomQuote())
-		setColor(() => getRandomColor())
+		setStyle(() => getNewStyle())
 	}
 
 	useEffect(function(){
@@ -41,7 +36,7 @@ function App() {
 				const res = await axios.get("https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json")
 				setQuotesData(res.data.quotes)
 				setCurrQuote(res.data.quotes[Math.floor(Math.random() * res.data.quotes.length)])
-				setColor(getRandomColor())
+				setStyle(getNewStyle())
 			}
 			catch(err){
 				setCurrQuote({ quote: "Failed to get data from server.", author: ""})
@@ -50,8 +45,8 @@ function App() {
 	}, [])
 
 	useEffect(function(){
-		setBodyColor(color.color)
-	}, [color])
+		setBodyColor(style.color)
+	}, [style])
 
 	return (
 		<div style={animation}>
@@ -59,7 +54,7 @@ function App() {
 				<h1 className="display-4 fw-bold">Random Quote Generator</h1>
 				<p className="lead">Share some quotes to your friends!</p>
 			</div>
-			<QuoteBox quote={currQuote} handler={newQuote} styleObj={color} />
+			<QuoteBox quote={currQuote} handler={newQuote} styleObj={style} />
 			<div className="container-fluid text-center footer">
 				<span>&copy;</span> <strong><a href="https://aebibtech.com" target="_blank" rel="noreferrer noopener">Aebibtech</a></strong>
 			</div>
